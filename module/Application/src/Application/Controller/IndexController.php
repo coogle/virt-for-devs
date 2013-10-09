@@ -16,6 +16,7 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        return new ViewModel();
+    	$users = $this->getServiceLocator()->get('Application\Model\UserTable');
+    	return array('users' => $users->fetchAll());
     }
 }
